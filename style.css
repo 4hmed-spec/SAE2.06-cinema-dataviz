@@ -1,0 +1,418 @@
+/* Modern dark theme for portfolio-style presentation */
+
+:root{
+  --bg:#0b0f13; /* deep background */
+  --panel:#0f1720; /* card background */
+  --muted:#98a0ab;
+  --text:#e6eef6;
+  --accent:#ee0b0b;
+  --accent-2:#6ee7b7;
+  --glass: rgba(255,255,255,0.03);
+  --soft-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  --max-width:1160px;
+  --radius:12px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:linear-gradient(180deg,#05060a 0%, #0b0f13 60%);-webkit-font-smoothing:antialiased;}
+.container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
+
+/* Header */
+header{padding:1rem 0}
+.logo-zone{display:flex;gap:1rem;align-items:center}
+.logo-zone img{height:56px;object-fit:contain;filter:grayscale(1) brightness(1.2)}
+header h1{font-size:1rem;margin:0.2rem 0 0;color:var(--accent-2);letter-spacing:0.2px}
+header p{margin:0;color:var(--muted);font-size:0.9rem}
+
+/* Navigation */
+.main-nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(3,6,12,0.6), rgba(3,6,12,0.4));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
+.nav-left .brand{color:var(--accent);font-weight:700;text-decoration:none}
+.nav-right a{color:var(--muted);text-decoration:none;margin-left:0.9rem;padding:0.5rem 0.6rem;border-radius:8px;transition:all 220ms cubic-bezier(.2,.9,.2,1);font-weight:600}
+.nav-right a:hover{color:var(--text);background:var(--glass);transform:translateY(-2px)}
+.nav-right .cta{background:linear-gradient(90deg,var(--accent),#2db2ff);color:#04202b;padding:0.45rem 0.9rem;border-radius:10px;margin-left:1rem}
+
+/* Hero */
+.hero{padding:2.2rem 0}
+.hero-inner{display:flex;gap:2rem;align-items:center}
+.hero-text{flex:1}
+.hero-text h1{font-size:2rem;margin:0 0 0.5rem;color:var(--accent);line-height:1.05}
+.lead{color:var(--muted);margin:0 0 1rem;max-width:70%}
+.hero-cta .btn{margin-right:0.8rem}
+.hero-aside{width:320px}
+.quick-stats{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.quick-stats div{display:flex;flex-direction:column;padding:0.35rem 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+.quick-stats strong{color:var(--accent);display:block}
+.quick-stats span{color:var(--muted);font-size:0.9rem}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;padding:0.6rem 0.9rem;border-radius:10px;font-weight:700;transition:transform 180ms ease, box-shadow 180ms ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#e00e06);color:#1d1212}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+.btn:hover{transform:translateY(-4px);box-shadow:var(--soft-shadow)}
+
+/* Sections */
+section{padding:1.25rem 0}
+.section-light{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding-top:1.5rem;padding-bottom:1.5rem;border-top:1px solid rgba(255,255,255,0.02)}
+
+/* Skills */
+.skills-intro{color:var(--muted);margin:0 0 1rem}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skill-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:1rem;border:1px solid rgba(255,255,255,0.03);transition:transform 220ms ease, box-shadow 220ms ease}
+.skill-card h3{margin:0 0 0.3rem;color:var(--accent)}
+.skill-card p{margin:0;color:var(--muted);font-size:0.95rem}
+.skill-card:hover{transform:translateY(-6px);box-shadow:var(--soft-shadow)}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1rem}
+.project-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);transition:transform 260ms ease, box-shadow 260ms ease}
+.project-card img{width:100%;height:160px;object-fit:cover;display:block}
+.project-body{padding:0.9rem}
+.project-body h3{margin:0 0 0.35rem;color:var(--accent)}
+.project-body p{margin:0 0 0.6rem;color:var(--muted)}
+.project-links a{color:var(--accent);font-weight:700}
+.project-card:hover{transform:translateY(-8px);box-shadow:var(--soft-shadow)}
+
+/* Contact CTA */
+.contact-cta{margin-top:1.25rem;padding:1rem;border-radius:12px;background:linear-gradient(90deg, rgba(51,160,255,0.04), rgba(110,231,183,0.02));border:1px solid rgba(255,255,255,0.02)}
+.contact-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1.2rem;align-items:start}
+.contact-hero h2{margin:0 0 0.4rem;color:var(--accent)}
+.contact-benefits{margin:0.6rem 0 0;padding-left:1.05rem;color:var(--muted)}
+
+/* Contact form styles */
+.contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.contact-form .form-row{display:flex;flex-direction:column;margin-bottom:0.8rem}
+.contact-form label{font-weight:700;color:var(--accent);margin-bottom:0.35rem}
+.contact-form input,.contact-form textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:0.6rem 0.75rem;border-radius:8px;color:var(--text);transition:box-shadow 160ms ease, transform 160ms ease}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(230,238,246,0.45)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;box-shadow:0 6px 20px rgba(51,160,255,0.06);transform:translateY(-2px);border-color:var(--accent)}
+.contact-form textarea{resize:vertical}
+.field-error{color:#ffb4b4;height:18px;font-size:0.85rem;margin-top:0.2rem}
+.form-actions{display:flex;gap:0.8rem;align-items:center}
+.btn-spinner{display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.12);border-top-color:var(--accent);margin-left:0.6rem;vertical-align:middle;opacity:0;transform:scale(0.9);transition:opacity 200ms ease, transform 200ms ease}
+.btn.loading .btn-spinner{opacity:1;transform:scale(1);animation:spin 1s linear infinite}
+.form-status{color:var(--muted);font-size:0.95rem}
+.form-note{font-size:0.85rem;margin-top:0.6rem}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (max-width:980px){
+  .contact-grid{grid-template-columns:1fr}
+}
+.muted{color:var(--muted)}
+
+/* Table styling (darker, cleaner) */
+.table-container{overflow:auto;padding:0.5rem}
+.table-resultats{width:100%;border-collapse:collapse;background:transparent;border-radius:10px}
+.table-resultats th,.table-resultats td{padding:0.85rem 1rem;border-bottom:1px solid rgba(255,255,255,0.02);text-align:left;color:var(--muted)}
+.table-resultats thead th{color:var(--text);font-weight:700}
+
+/* Footer */
+footer{padding:1.1rem 0;color:var(--muted);text-align:center;font-size:0.95rem}
+
+/* Accessibility */
+a:focus{outline:3px solid rgba(51,160,255,0.12);outline-offset:3px}
+
+/* Responsive */
+@media (max-width:980px){
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{flex-direction:column}
+  .lead{max-width:100%}
+}
+@media (max-width:600px){
+  .nav-right{display:none}
+  .hero-text h1{font-size:1.4rem}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .hero-aside{width:100%}
+}
+
+/* Print */
+@media print{.main-nav, .logo-zone img, footer{display:none};body{background:#fff;color:#000}}
+
+/* BODY  */
+
+
+body {
+  position: relative;
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* fond noir classique sous la bobine */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  z-index: 0;
+}
+
+
+/* HEADER */
+header {
+  background-color: #1a1818;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 4px solid #b22222;
+}
+
+.logo-zone {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Rendre les images de la zone logo plus petites */
+.logo-zone img {
+  max-height: 80px; 
+  max-width: 170px; 
+  width: auto;
+  height: auto;
+  margin: 5px 8px;
+  vertical-align: middle;
+}
+
+.logo-placeholder {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  background-color: #222;
+  border: 1px solid #333;
+  color: #777;
+  margin: 5px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 13px;
+}
+
+header h1 {
+  color: #b22222;
+  margin: 0;
+}
+
+header p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* NAVIGATION */
+nav {
+  background-color: #1c1c1c;
+  text-align: center;
+  padding: 10px;
+}
+
+nav a {
+  color: #b22222;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* SECTIONS */
+section {
+  width: 85%;
+  background-color: #1c1c1c;
+  margin: 25px auto;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+/* les objectif*/
+
+.objectif-left {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.objectif-right {
+  flex: 1 1 auto;
+}
+.objectif-title {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.question-pill {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 28px;
+  max-width: 100%;
+  line-height: 1.3;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.4) inset;
+}
+.sous-title {
+  margin: 12px 0 6px 0;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.sous-objectifs {
+  margin-left: 20px;
+  list-style: disc;
+}
+.sous-objectifs li {
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.objectifs-clean {
+  display: block;
+  background: transparent; 
+  padding: 18px 22px;
+}
+.objectifs-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.objectifs-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.sous-container h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  text-transform: none;
+}
+.sous-objectifs {
+  margin-left: 20px;
+  max-width: 920px;
+}
+.sous-objectifs li {
+  margin: 8px 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+
+h2 {
+  color: #b22222;
+  border-bottom: 1px solid #b22222;
+  padding-bottom: 5px;
+}
+
+/* PLACEHOLDERS POUR IMAGES */
+.img-placeholder {
+  width: 90%;
+  height: 200px;
+  background-color: #222;
+  border: 1px dashed #444;
+  margin: 15px auto;
+  text-align: center;
+  line-height: 200px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Style pour l'image d'intro */
+.intro-image {
+  display: block;
+  width: 70%;            
+  max-width: 900px;  
+  height: auto;   
+  margin: 20px auto;
+  border: 1px solid #444;
+  background-color: #111; 
+  object-fit: contain;   
+}
+
+/* LISTES */
+ul, ol {
+  margin-left: 25px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  border-top: 3px solid #b22222;
+  font-size: 13px;
+}
+
+.footer-logos {
+  margin-bottom: 10px;
+}
+
+.footer-logos .logo-placeholder {
+  width: 80px;
+  height: 50px;
+  line-height: 50px;
+}
+/* les images apres un p sont au milleu de leur conteneur */
+p img {
+  vertical-align: middle;
+  margin: 0 5px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* les strong dans les p sont rouges */
+p strong {
+  color: #b22222;
+}
+li strong {
+  color: #b22222;
+}
+
+section, header, nav, footer {
+  position: relative;
+  z-index: 1;
+}
+/* fond noir classique sous la bobine */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #111;
+  
+  /* ajoutee la bobine en decoration */
+  background-image: url('images/bobine.png'), url('images/bobine.png');
+  background-repeat: repeat-y, repeat-y;
+  background-position: top left, top right;
+  
+  z-index: 0;
+}
+/* th et td */
+th:hover {
+  color: #c02a09; /* rouge pour fr un rappel de couleur */
+
+}
+td:hover {
+  color: #c02a09; /* rouge pour fr un rappel de couleur */
+
+}
