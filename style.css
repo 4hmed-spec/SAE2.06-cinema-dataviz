@@ -1,3 +1,21 @@
+/* Palette overrides to use strong red accent for DA coherence */
+:root{
+  --accent-red: #d62828;
+  --accent-red-2: #ff6b6b;
+}
+
+/* Brand and primary buttons in red */
+.brand{color:var(--accent-red)}
+.btn.primary{background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));color:#fff;border:none}
+.nav-right a.cta{background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));color:#fff}
+
+/* Contact / form red accents */
+.contact-hero h2, .contact-form label, .skill-card h3, .project-body h3{color:var(--accent-red)}
+.btn.primary:hover{filter:brightness(0.95);transform:translateY(-3px)}
+
+/* Make links and highlights slightly red */
+a{color:var(--accent-red)}
+a:hover{opacity:0.9}
 /* Modern dark theme for portfolio-style presentation */
 
 :root{
