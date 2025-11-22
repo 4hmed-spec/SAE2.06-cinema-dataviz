@@ -5,6 +5,23 @@
   <meta charset="UTF-8">
   <title>SAE 2.06 – Analyse de données, reporting et datavisualisation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+  /* Inline styles for contact form to keep index.html self-contained */
+  .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1.2rem;align-items:start}
+  .contact-hero h2{margin:0 0 0.4rem;color:#33a0ff}
+  .contact-benefits{margin:0.6rem 0 0;padding-left:1.05rem;color:#98a0ab}
+  .contact-form{background:rgba(255,255,255,0.02);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+  .contact-form .form-row{display:flex;flex-direction:column;margin-bottom:0.8rem}
+  .contact-form label{font-weight:700;color:#33a0ff;margin-bottom:0.35rem}
+  .contact-form input,.contact-form textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:0.6rem 0.75rem;border-radius:8px;color:inherit}
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;box-shadow:0 6px 20px rgba(51,160,255,0.06);border-color:#33a0ff;transform:translateY(-2px)}
+  .field-error{color:#ffb4b4;height:18px;font-size:0.85rem;margin-top:0.2rem}
+  .form-actions{display:flex;gap:0.8rem;align-items:center}
+  .btn-spinner{display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.12);border-top-color:#33a0ff;margin-left:0.6rem;vertical-align:middle;opacity:0;transform:scale(0.9);transition:opacity 200ms ease, transform 200ms ease}
+  .btn.loading .btn-spinner{opacity:1;transform:scale(1);animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header>
@@ -13,7 +30,7 @@
       <img src="images/iut.png" alt="Photo de profil" />
     </div>
     <h1> SAE 2.06 – Analyse de données, reporting et datavisualisation </h1>
-    <p>Projet académique réalisé dans le cadre de ma première année en BUT Science des Données.</p>
+    <p>Projet académique réalisé dans le cadre de ma première année en BUT Science des Données en groupe.</p>
   </header>
 
   <!-- Navigation simplifiée et sticky -->
@@ -113,20 +130,7 @@
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section id="contact" class="contact-cta">
-    <div class="container">
-      <div class="contact-inner">
-        <div>
-          <h2>Intéressé par mon profil ?</h2>
-          <p class="muted">Je suis disponible pour des stages et projets. Contactez-moi pour en discuter.</p>
-        </div>
-        <div>
-          <a href="https://www.linkedin.com/in/ahmed-ramy-terir/" class="btn primary">Envoyer un message</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Contact CTA (moved to bottom) -->
   
 
   <section id="sae">
@@ -365,6 +369,96 @@
 
   </footer>
 
+  <!-- Contact CTA (placed at bottom) -->
+  <section id="contact" class="contact-cta">
+    <div class="container">
+      <div class="contact-inner contact-grid">
+        <div class="contact-hero">
+          <h2>Intéressé par mon profil ?</h2>
+          <p class="muted">Je suis disponible pour des stages et projets. Vous pouvez m'envoyer un e‑mail directement ou utiliser le formulaire ci‑dessous.</p>
+          <p style="margin-top:0.8rem">
+            <a href="mailto:ahmed.terir.etu@univ-lille.fr" class="btn primary">Envoyer un e‑mail</a>
+          </p>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate action="https://formsubmit.co/ahmed.terir.etu@univ-lille.fr" method="POST" target="_blank">
+          <!-- FormSubmit will forward emails to the configured address -->
+          <input type="hidden" name="_subject" value="[Site SAE 2.06] Nouveau message" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-row">
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" placeholder="Votre nom" required aria-required="true" />
+            <small class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-row">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="votre.email@exemple.com" required aria-required="true" />
+            <small class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Bonjour Ahmed, ..." required aria-required="true"></textarea>
+            <small class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="submitBtn">
+              <span class="btn-text">Envoyer</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </div>
+          <p class="form-note muted">Le formulaire envoie un e‑mail réel directement à <strong>ahmed.terir.etu@univ-lille.fr</strong> (ouvert dans un nouvel onglet).</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  // Contact form: front-end validation + simulated send (no backend configured)
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    const submitBtn = document.getElementById('submitBtn');
+    const statusEl = form.querySelector('.form-status');
+
+    function validateField(field){
+      const errEl = field.parentElement.querySelector('.field-error');
+      if(!field.checkValidity()){
+        if(field.validity.valueMissing) errEl.textContent = 'Ce champ est requis.';
+        else if(field.validity.typeMismatch) errEl.textContent = 'Veuillez entrer une adresse valide.';
+        else errEl.textContent = 'Valeur invalide.';
+        return false;
+      }
+      errEl.textContent = '';
+      return true;
+    }
+
+    form.addEventListener('input', (e)=>{ if(e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA') validateField(e.target); });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      statusEl.textContent = '';
+      const name = form.name, email = form.email, message = form.message;
+      const ok = validateField(name) & validateField(email) & validateField(message);
+      if(!ok) { statusEl.textContent = 'Veuillez corriger les erreurs ci‑dessous.'; return; }
+
+      // show loading and submit the form to FormSubmit in a new tab
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      // small delay so user sees spinner, then submit natively
+      setTimeout(()=>{
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        form.submit();
+      }, 600);
+    });
+  })();
+  </script>
+
 </body>
 </html>
-
