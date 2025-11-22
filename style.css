@@ -71,6 +71,56 @@ header p{margin:0;color:var(--muted);font-size:0.9rem}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
 .btn:hover{transform:translateY(-4px);box-shadow:var(--soft-shadow)}
 
+/* High-quality contact button (adapted from Uiverse, recolored to site red) */
+.contactButton {
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-red-2));
+  color: white;
+  font-family: inherit;
+  padding: 0.5em 1.2em 0.5em 1.2em;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 1em;
+  border: none;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 1.8em -0.7em rgba(0,0,0,0.25);
+  overflow: hidden;
+  position: relative;
+  height: 3em;
+  padding-right: 3.5em;
+  text-decoration: none;
+}
+
+.contactButton .iconButton {
+  margin-left: 1.2em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 1.2em;
+  box-shadow: 0.15em 0.15em 0.8em 0.12em rgba(0,0,0,0.25);
+  right: 0.4em;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.06);
+  color: white;
+}
+
+.contactButton svg{width:18px;height:18px}
+
+.contactButton:hover{
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.25em 0.25em rgba(0,0,0,0.25);
+}
+
+.contactButton:active{
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.12em 0.12em rgba(0,0,0,0.2);
+}
+
 /* Sections */
 section{padding:1.25rem 0}
 .section-light{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding-top:1.5rem;padding-bottom:1.5rem;border-top:1px solid rgba(255,255,255,0.02)}
