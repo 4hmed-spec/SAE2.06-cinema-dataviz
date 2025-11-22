@@ -6,20 +6,10 @@
   <title>SAE 2.06 – Analyse de données, reporting et datavisualisation</title>
   <link rel="stylesheet" href="style.css">
   <style>
-  /* Inline styles for contact form to keep index.html self-contained */
+  /* Minimal inline contact layout styles (kept small) */
   .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1.2rem;align-items:start}
-  .contact-hero h2{margin:0 0 0.4rem;color:#33a0ff}
-  .contact-benefits{margin:0.6rem 0 0;padding-left:1.05rem;color:#98a0ab}
-  .contact-form{background:rgba(255,255,255,0.02);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-  .contact-form .form-row{display:flex;flex-direction:column;margin-bottom:0.8rem}
-  .contact-form label{font-weight:700;color:#33a0ff;margin-bottom:0.35rem}
-  .contact-form input,.contact-form textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:0.6rem 0.75rem;border-radius:8px;color:inherit}
-  .contact-form input:focus,.contact-form textarea:focus{outline:none;box-shadow:0 6px 20px rgba(51,160,255,0.06);border-color:#33a0ff;transform:translateY(-2px)}
-  .field-error{color:#ffb4b4;height:18px;font-size:0.85rem;margin-top:0.2rem}
-  .form-actions{display:flex;gap:0.8rem;align-items:center}
-  .btn-spinner{display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.12);border-top-color:#33a0ff;margin-left:0.6rem;vertical-align:middle;opacity:0;transform:scale(0.9);transition:opacity 200ms ease, transform 200ms ease}
-  .btn.loading .btn-spinner{opacity:1;transform:scale(1);animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
+  .contact-hero h2{margin:0 0 0.4rem;color:var(--accent-red)}
+  .contact-benefits{margin:0.6rem 0 0;padding-left:1.05rem;color:var(--muted)}
   @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -374,45 +364,24 @@
     <div class="container">
       <div class="contact-inner contact-grid">
         <div class="contact-hero">
-          <h2>Intéressé par mon profil ?</h2>
-          <p class="muted">Je suis disponible pour des stages et projets. Vous pouvez m'envoyer un e‑mail directement ou utiliser le formulaire ci‑dessous.</p>
+          <h2>Mon profil vous intéresse ? </h2>
+          <p class="muted">Je suis disponible pour un stage de 10 semaines a partir du 10 avril 2026. N’hésitez pas à me contacter à l’adresse <strong> ahmed.terir.etu@univ-lille.fr</strong> via ce bouton. </p>
           <p style="margin-top:0.8rem">
-            <a href="mailto:ahmed.terir.etu@univ-lille.fr" class="btn primary">Envoyer un e‑mail</a>
           </p>
         </div>
 
-        <form id="contactForm" class="contact-form" novalidate action="https://formsubmit.co/ahmed.terir.etu@univ-lille.fr" method="POST" target="_blank">
-          <!-- FormSubmit will forward emails to the configured address -->
-          <input type="hidden" name="_subject" value="[Site SAE 2.06] Nouveau message" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <div class="form-row">
-            <label for="name">Nom</label>
-            <input id="name" name="name" type="text" placeholder="Votre nom" required aria-required="true" />
-            <small class="field-error" aria-live="polite"></small>
-          </div>
-
-          <div class="form-row">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" placeholder="votre.email@exemple.com" required aria-required="true" />
-            <small class="field-error" aria-live="polite"></small>
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Bonjour Ahmed, ..." required aria-required="true"></textarea>
-            <small class="field-error" aria-live="polite"></small>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn primary" id="submitBtn">
-              <span class="btn-text">Envoyer</span>
-              <span class="btn-spinner" aria-hidden="true"></span>
-            </button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </div>
-          <p class="form-note muted">Le formulaire envoie un e‑mail réel directement à <strong>ahmed.terir.etu@univ-lille.fr</strong> (ouvert dans un nouvel onglet).</p>
-        </form>
+        <!-- Contact replaced by a single high-quality CTA button (mailto) per user request -->
+        <div style="display:flex;align-items:center;justify-content:flex-start;gap:1rem">
+          <a class="contactButton" href="mailto:ahmed.terir.etu@univ-lille.fr" aria-label="Envoyer un e-mail à Ahmed Terir">
+            Envoyer un e‑mail
+            <div class="iconButton" aria-hidden="true">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
